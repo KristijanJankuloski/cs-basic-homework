@@ -105,3 +105,70 @@ swapInput2 = swapTemp;
 
 Console.WriteLine("Swapped numbers are " + swapInput1 + ", " + swapInput2);
 #endregion
+
+Console.WriteLine("=================");
+
+#region Exercise 6
+
+Console.WriteLine("Enter two numbers to test");
+isParsed = int.TryParse(Console.ReadLine(), out int testNumber1);
+if (!isParsed) {
+    Console.WriteLine("Input is invalid");
+    return;
+}
+isParsed = int.TryParse(Console.ReadLine(), out int testNumber2);
+if (!isParsed) {
+    Console.WriteLine("Input is invalid");
+    return;
+}
+
+int largerNumber;
+if(testNumber1 > testNumber2) {
+    largerNumber = testNumber1;
+}
+else if(testNumber2 > testNumber1) {
+    largerNumber = testNumber2;
+}
+else {
+    Console.WriteLine("The numbers are equal");
+    largerNumber = testNumber1;
+}
+
+Console.WriteLine(largerNumber + " is larger");
+
+bool isLargerEven = largerNumber % 2 == 0;
+
+if (isLargerEven) {
+    Console.WriteLine("The larger number is even");
+}
+else {
+    Console.WriteLine("The larger number is odd");
+}
+
+#endregion
+
+Console.WriteLine("=================");
+
+#region Exercise 7
+
+Console.WriteLine("Enter a number between 1 and 3");
+isParsed = int.TryParse(Console.ReadLine(), out int numberOutOf3);
+if (!isParsed) {
+    Console.WriteLine("Input is invalid");
+    return;
+}
+switch(numberOutOf3) {
+    case 1:
+        Console.WriteLine("You got a new car!");
+        break;
+    case 2:
+        Console.WriteLine("You got a new plane!");
+        break;
+    case 3:
+        Console.WriteLine("You got a new bike!");
+        break;
+    default:
+        Console.WriteLine("You entered an incorrec number");
+        break;
+}
+#endregion
