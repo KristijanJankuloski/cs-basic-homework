@@ -1,6 +1,16 @@
-﻿#region Task 1
-using System.Xml.Schema;
+﻿#region EXERCISE 4
+DateTime today = DateTime.Now;
+Console.WriteLine($"Three days from now: {today.AddDays(3)}");
+Console.WriteLine($"One month from now: {today.AddMonths(1)}");
+Console.WriteLine($"One month and three days from now: {today.AddMonths(1).AddDays(3)}");
+Console.WriteLine($"One year two months ago: {today.AddYears(-1).AddMonths(-2)}");
+Console.WriteLine($"Currnet month: {today.Month}");
+Console.WriteLine($"Current year: {today.Year}");
+#endregion
 
+Console.WriteLine("=====================");
+
+#region Task 1
 Console.WriteLine("Enter a string to test");
 string task1Input = Console.ReadLine();
 if (task1Input.Length >= 5) {
