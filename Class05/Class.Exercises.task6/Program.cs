@@ -153,10 +153,10 @@ int HomeScreenSelection(int selectedOption)
     do
     {
         Console.Clear();
-        Console.WriteLine("Welcome to our bank!\n");
-        Console.WriteLine(selectedOption == 0 ? "Login to existing account <-" : "Login to existing account");
-        Console.WriteLine(selectedOption == 1 ? "Create a new account <-" : "Create a new account");
-        Console.WriteLine(selectedOption == 2 ? "Exit <-" : "Exit");
+        Console.WriteLine("Welcome to our bank!\nUse arrow keys to navigate and Enter to select\n\n");
+        Console.WriteLine(selectedOption == 0 ? "-->\tLogin to existing account" : "\tLogin to existing account");
+        Console.WriteLine(selectedOption == 1 ? "-->\tCreate a new account" : "\tCreate a new account");
+        Console.WriteLine(selectedOption == 2 ? "-->\tExit" : "\tExit");
 
         ConsoleKey inputKey = Console.ReadKey(true).Key;
         if (inputKey == ConsoleKey.Escape)
@@ -178,10 +178,10 @@ int OptionSelectionLoop(int selectedOption, string username)
     {
         Console.Clear();
         Console.WriteLine($"Welcome back {username}\nSelect options:\n");
-        Console.WriteLine(selectedOption == 0 ? "Check Balance <-" : "Check Balance");
-        Console.WriteLine(selectedOption == 1 ? "Cash Withdrawal <-" : "Cash Withdrawal");
-        Console.WriteLine(selectedOption == 2 ? "Cash Deposit <-" : "Cash Deposit");
-        Console.WriteLine(selectedOption == 3 ? "Logout <-" : "Logout");
+        Console.WriteLine(selectedOption == 0 ? "-->\tCheck Balance" : "\tCheck Balance");
+        Console.WriteLine(selectedOption == 1 ? "-->\tCash Withdrawal" : "\tCash Withdrawal");
+        Console.WriteLine(selectedOption == 2 ? "-->\tCash Deposit" : "\tCash Deposit");
+        Console.WriteLine(selectedOption == 3 ? "-->\tLogout" : "\tLogout");
 
         ConsoleKey inputKey = Console.ReadKey(true).Key;
 
