@@ -1,18 +1,15 @@
-﻿Dictionary<string, string> phoneBook = new Dictionary<string, string>();
-phoneBook.Add("Martin", "070/222-333");
-phoneBook.Add("John", "070/222-111");
-phoneBook.Add("Kiko", "070/555-333");
-phoneBook.Add("Bob", "070/222-123");
-phoneBook.Add("Greg", "070/298-333");
+﻿using Dictionary;
 
-Console.WriteLine("Enter a name to search: ");
-string input = Console.ReadLine();
-
-if (phoneBook.ContainsKey(input))
+try
 {
-    Console.WriteLine(phoneBook[input]);
+    User user = new User(null);
 }
-else
+catch (ArgumentNullException ex)
 {
-    Console.WriteLine("name was not found");
+
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    Console.WriteLine(ex.StackTrace);
 }
