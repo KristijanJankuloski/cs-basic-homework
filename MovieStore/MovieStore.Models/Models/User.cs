@@ -1,6 +1,6 @@
 ﻿using MovieStore.Models.Enums;
 
-namespace MovieStore.Models
+namespace MovieStore.Models.Models
 {
     public class User
     {
@@ -13,6 +13,16 @@ namespace MovieStore.Models
         public UserRoles Role { get; set; }
 
         public User() { }
+        public User(string firstName, string lastName, int age, string username, string password, UserRoles role)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Age = age;
+            UserName = username;
+            Password = password;
+            Role = role;
+            DateOfRegistration = DateTime.Now;
+        }
 
         public string GetInfo()
         {

@@ -20,6 +20,7 @@ namespace MovieStore.Models.Enums
         Drama,
         Musical,
         Documentary,
-        Fantasy
+        Fantasy,
+        Crime
     }
 }
