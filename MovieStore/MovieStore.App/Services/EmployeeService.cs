@@ -9,13 +9,31 @@ namespace MovieStore.App.Services
 {
     public class EmployeeService
     {
-        public List<Employee> Employees { get; set; }
+        public Dictionary<string,Employee> Employees { get; set; }
 
         public EmployeeService()
         {
-            Employees = new List<Employee>() { 
-                new Employee("Kristijan", "Jankuloski", 25, "kiko", "password", 120),
+            Employees = new Dictionary<string, Employee>
+            {
+                { "kiko", new Employee("Kristijan", "Jankuloski", 25, "kiko", "password", 120) }
             };
+        }
+
+        public void Add(Employee employee)
+        {
+            Employees.Add(employee.UserName, employee);
+        }
+        public Employee LogIn(string username, string password)
+        {
+            if(!Employees.ContainsKey(username))
+            {
+                throw new Exception("Username or password is incorrect.");
+            }
+            if (!Employees[username].ChechPassword(password))
+            {
+                throw new Exception("Username or password is incorrect.");
+            }
+            return Employees[username];
         }
     }
 }

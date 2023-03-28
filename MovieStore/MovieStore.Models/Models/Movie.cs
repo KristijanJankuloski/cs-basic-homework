@@ -42,5 +42,9 @@ namespace MovieStore.Models.Models
                 Price = random.Next(300, 500);
             }
         }
+        public string GetShortInfo()
+        {
+            return $"{Title} - {Year} - {Genre} - {Price}";
+        }
     }
 }

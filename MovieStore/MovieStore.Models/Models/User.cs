@@ -28,5 +28,10 @@ namespace MovieStore.Models.Models
         {
             return $"{FirstName} {LastName} | Registered on {DateOfRegistration}";
         }
+
+        public bool ChechPassword(string password)
+        {
+            return Password == password;
+        }
     }
 }

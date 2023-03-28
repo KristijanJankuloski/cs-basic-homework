@@ -56,6 +56,8 @@ namespace MovieStore.App.Services
         public Movie CheckOut(Movie movie)
         {
             int movIndex = Movies.IndexOf(movie);
+            if (!Movies[movIndex].IsAvalable)
+                throw new Exception("Movie is not available");
             Movies[movIndex].IsAvalable = false;
             return Movies[movIndex];
         }
