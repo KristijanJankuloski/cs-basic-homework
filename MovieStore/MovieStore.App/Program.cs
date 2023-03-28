@@ -366,21 +366,23 @@ int EmployeeOptionsLoop(int selection, string name)
 Movie RentingMoviesLoop(List<Movie> movies)
 {
     int selection = 0;
+    int offset = 0;
     while (true)
     {
         Console.Clear();
         Console.WriteLine("Select movie to rent or press escape to exit\n");
-
-        for (int i=0; i < movies.Count; i++)
+        var moviesPage = offset+6 <= movies.Count? movies.GetRange(offset, 6) : movies.GetRange(offset, movies.Count - offset);
+        for (int i=0; i < moviesPage.Count; i++)
         {
             if(i == selection)
             {
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.White;
             }
-            Console.WriteLine(movies[i].Title);
+            Console.WriteLine(moviesPage[i].Title);
             Console.ResetColor();
         }
+        Console.WriteLine($"\nPage {(offset/6)+1}/{Math.Ceiling(movies.Count/6.0)}");
         ConsoleKey key = Console.ReadKey(true).Key;
         if (key == ConsoleKey.UpArrow)
         {
@@ -388,11 +390,19 @@ Movie RentingMoviesLoop(List<Movie> movies)
         }
         else if(key == ConsoleKey.DownArrow)
         {
-            selection = selection == movies.Count-1 ? selection : selection + 1;
+            selection = selection == moviesPage.Count-1 ? selection : selection + 1;
+        }
+        else if (key == ConsoleKey.LeftArrow)
+        {
+            offset = offset == 0 ? 0 : offset - 6;
+        }
+        else if (key == ConsoleKey.RightArrow)
+        {
+            offset = offset / 6 == movies.Count / 6 ? offset : offset + 6;
         }
         else if(key == ConsoleKey.Enter)
         {
-            return movies[selection];
+            return moviesPage[selection];
         }
         else if(key == ConsoleKey.Escape)
         {
